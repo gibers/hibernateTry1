@@ -1,0 +1,50 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: default
+
+my:
+  servers:
+    - dev.example.com
+    - another.example.com
+
+
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    platform: postgresql
+    url: jdbc:postgresql://localhost:5432/mytry1
+    username: 
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    properties:
+
+
+my:
+  servers:
+    - dev
+    - another
+
+logging:
+  level:
+    root: info
+    com:
+      example:
+        mytry: debug
+      switzerland:
+        youtube:
+          youtubedon: debug
+          domainService:
+            ManageDonateurs: debug
+
